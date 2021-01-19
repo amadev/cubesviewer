@@ -13,33 +13,33 @@
 
 <div ng-if="view.params.yaxis == null" class="alert alert-info" style="margin-bottom: 0px;">
     <p>
-        Cannot present chart: no <b>measure</b> has been selected.
+      Невозможно отобразить график: <b>значение</b> не выбрано.
     </p>
     <p>
-        Tip: use the <kbd><i class="fa fa-fw fa-cogs"></i> View &gt; <i class="fa fa-fw fa-crosshairs"></i> Measure</kbd> menu.
+      Подсказка: используйте меню <kbd><i class="fa fa-fw fa-cogs"></i> Вид &gt; <i class="fa fa-fw fa-crosshairs"></i> Значение</kbd>.
     </p>
 </div>
 
 <div ng-if="view.pendingRequests == 0 && view.params.yaxis != null && view.grid.data.length == 0" class="alert alert-info" style="margin-bottom: 0px;">
     <p>
-        Cannot present chart: <b>no rows returned</b> by the current filtering, horizontal dimension, and drilldown combination.
+      Невозможно отобразить график: <b>нет строк</b>.
     </p>
     <p>
-        Tip: use the <kbd><i class="fa fa-fw fa-cogs"></i> View</kbd> menu to select an horizontal dimension.
+      Подсказка: используйте меню <kbd><i class="fa fa-fw fa-cogs"></i> Вид</kbd> чтобы выбрать горизонтальное измерение.
     </p>
 </div>
 
 <div ng-if="view.pendingRequests == 0 && view.params.charttype == 'pie' && view.grid.columnDefs.length > 2" class="alert alert-info" style="margin-bottom: 0px;">
     <p>
-        Cannot present a <b>pie chart</b> when <b>more than one column</b> is present.<br />
+      Невозможно отобразить <b>круговую диаграмму</b> когда <b>выбрано более одного</b> столбца.<br />
     </p>
     <p>
-        Tip: review chart data and columns in <a href="" ng-click="setViewMode('series')" class="alert-link">series mode</a>,
-        or <a href="" ng-click="selectXAxis(null);" class="alert-link">remove horizontal dimension</a>.
+      Подсказка: посмотрите данные графика и столбцы в режиме <a href="" ng-click="setViewMode('series')" class="alert-link">ряды</a>,
+      или <a href="" ng-click="selectXAxis(null);" class="alert-link">удалите горизонтальное измерение</a>.
     </p>
 </div>
 
 <div ng-if="view.pendingRequests == 0 && view.params.yaxis != null && view.params.charttype == 'radar' && view.grid.columnDefs.length < 4" class="alert alert-info" style="margin-bottom: 0px;">
-    Cannot present a <b>radar chart</b> when <b>less than 3 columns</b> are present.<br />
-    Tip: review chart data and columns in <a href="" ng-click="setViewMode('series')" class="alert-link">series mode</a>.
+  Невозможно отобразить <b>график "радар"</b> когда <b>менее 3 столбцов</b> выбрано.<br />
+  Подсказка: посмотрите данные графика и столбцы в режиме <a href="" ng-click="setViewMode('series')" class="alert-link">ряды</a>.
 </div>

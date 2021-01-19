@@ -1,5 +1,5 @@
   <button class="btn btn-primary btn-sm dropdown-toggle cutbutton" type="button" data-toggle="dropdown" data-submenu>
-    <i class="fa fa-fw fa-filter"></i> <span class="hidden-xs" ng-class="{ 'hidden-sm hidden-md': cvOptions.studioTwoColumn }">Filter</span> <span class="caret"></span>
+    <i class="fa fa-fw fa-filter"></i> <span class="hidden-xs" ng-class="{ 'hidden-sm hidden-md': cvOptions.studioTwoColumn }">Фильтр</span> <span class="caret"></span>
   </button>
 
   <ul class="dropdown-menu dropdown-menu-right cv-view-menu cv-view-menu-cut">
@@ -8,7 +8,7 @@
     <div ng-show="view.params.mode == 'explore'" class="divider"></div>
 
     <li class="dropdown-submenu">
-        <a tabindex="0"><i class="fa fa-fw fa-bars"></i> Dimension filter</a>
+      <a tabindex="0"><i class="fa fa-fw fa-bars"></i> Фильтр по размерности</a>
         <ul class="dropdown-menu">
 
           <li on-repeat-done ng-repeat-start="dimension in view.cube.dimensions" ng-if="dimension.levels.length == 1" ng-click="showDimensionFilter(dimension.name);">
@@ -38,7 +38,7 @@
     </li>
 
     <li class="dropdown-submenu">
-        <a tabindex="0"><i class="fa fa-fw fa-calendar"></i> Date filter</a>
+      <a tabindex="0"><i class="fa fa-fw fa-calendar"></i> Фильтр по дате</a>
         <ul class="dropdown-menu">
           <li ng-repeat="dimension in view.cube.dimensions" ng-if="dimension.isDateDimension()">
             <a href="" ng-click="selectDateFilter(dimension.name + ((dimension.info['cv-datefilter-hierarchy']) ? '@' + dimension.info['cv-datefilter-hierarchy'] : ''), true)">
@@ -46,7 +46,7 @@
             </a>
           </li>
           <li ng-if="view.cube.dateDimensions().length == 0" class="disabled">
-            <a href="" ng-click=""><i>No date filters defined for this cube.</i></a>
+            <a href="" ng-click=""><i>Фильтр по дате не определен для этого куба.</i></a>
           </li>
 
         </ul>
@@ -84,6 +84,6 @@
 
     <div class="divider"></div>
 
-    <li ng-class="{ 'disabled': view.params.cuts.length == 0 && view.params.datefilters.length == 0 }" ng-click="clearFilters()"><a href=""><i class="fa fa-fw fa-trash"></i> Clear filters</a></li>
+    <li ng-class="{ 'disabled': view.params.cuts.length == 0 && view.params.datefilters.length == 0 }" ng-click="clearFilters()"><a href=""><i class="fa fa-fw fa-trash"></i> Очистить фильтры</a></li>
 
   </ul>

@@ -4,14 +4,14 @@
 
         <div class="dropdown m-b" style="display: inline-block;">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
-            <i class="fa fa-fw fa-cube"></i> Cubes <span class="caret"></span>
+            <i class="fa fa-fw fa-cube"></i> Кубы <span class="caret"></span>
           </button>
 
           <ul class="dropdown-menu cv-gui-cubeslist-menu">
 
-            <li ng-show="cubesService.state === 1" class="disabled"><a>Loading...</a></li>
-            <li ng-show="cubesService.state === 2 && cubesService.cubesserver._cube_list.length === 0" class="disabled"><a>No cubes found</a></li>
-            <li ng-show="cubesService.state === 3" class="disabled text-danger"><a>Loading failed</a></li>
+            <li ng-show="cubesService.state === 1" class="disabled"><a>Загрузка...</a></li>
+            <li ng-show="cubesService.state === 2 && cubesService.cubesserver._cube_list.length === 0" class="disabled"><a>Кубы не найдены</a></li>
+            <li ng-show="cubesService.state === 3" class="disabled text-danger"><a>Ошибка загрузки</a></li>
 
             <li ng-repeat="cube in cubesService.cubesserver._cube_list | orderBy:'label'" ng-click="studioViewsService.addViewCube(cube.name)"><a>{{ cube.label }}</a></li>
 
@@ -21,17 +21,17 @@
 
         <div ng-if="cvOptions.backendUrl" class="dropdown m-b" style="display: inline-block; ">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
-            <i class="fa fa-fw fa-file"></i> Saved views <span class="caret"></span>
+            <i class="fa fa-fw fa-file"></i> Сохраненные представления<span class="caret"></span>
           </button>
 
           <ul class="dropdown-menu cv-gui-catalog-menu">
 
-            <li class="dropdown-header">Personal views</li>
+            <li class="dropdown-header">Персональные представления</li>
 
             <!-- <li ng-show="true" class="disabled"><a>Loading...</a></li>  -->
             <li ng-repeat="sv in reststoreService.savedViews | orderBy:'sv.name'" ng-if="sv.owner == cvOptions.user" ng-click="reststoreService.addSavedView(sv.id)"><a style="max-width: 360px; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fa fa-fw"></i> {{ sv.name }}</a></li>
 
-            <li class="dropdown-header">Shared by others</li>
+            <li class="dropdown-header">Предоставлено другими</li>
 
             <!-- <li ng-show="true" class="disabled"><a>Loading...</a></li>  -->
             <li ng-repeat="sv in reststoreService.savedViews | orderBy:'sv.name'" ng-if="sv.shared && sv.owner != cvOptions.user" ng-click="reststoreService.addSavedView(sv.id)"><a style="max-width: 360px; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap;"><i class="fa fa-fw"></i> {{ sv.name }}</a></li>
@@ -42,19 +42,19 @@
 
         <div class="dropdown m-b" style="display: inline-block; margin-left: 5px;">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
-            <i class="fa fa-fw fa-wrench"></i> Tools <span class="caret"></span>
+            <i class="fa fa-fw fa-wrench"></i> Инструменты <span class="caret"></span>
           </button>
 
           <ul class="dropdown-menu">
 
-                <li ng-click="showSerializeAdd()"><a tabindex="0"><i class="fa fa-fw fa-code"></i> Add view from JSON...</a></li>
+                <li ng-click="showSerializeAdd()"><a tabindex="0"><i class="fa fa-fw fa-code"></i> Добавить представление из JSON...</a></li>
 
                 <div class="divider"></div>
 
-                <li ng-click="toggleTwoColumn()" ng-class="{ 'hidden-xs': ! cvOptions.studioTwoColumn, 'disabled': studioViewsService.views.length == 0 }"><a tabindex="0"><i class="fa fa-fw fa-columns"></i> 2 column
+                <li ng-click="toggleTwoColumn()" ng-class="{ 'hidden-xs': ! cvOptions.studioTwoColumn, 'disabled': studioViewsService.views.length == 0 }"><a tabindex="0"><i class="fa fa-fw fa-columns"></i> 2 столбца
                     <span class="label label-default" style="margin-left: 10px;" ng-class="{ 'label-success': cvOptions.studioTwoColumn }">{{ cvOptions.studioTwoColumn ? "ON" : "OFF" }}</span></a>
                 </li>
-                <li ng-click="toggleHideControls()" ng-class="{ 'disabled': studioViewsService.views.length == 0 }"><a tabindex="0"><i class="fa fa-fw fa-unlock-alt"></i> Hide controls
+                <li ng-click="toggleHideControls()" ng-class="{ 'disabled': studioViewsService.views.length == 0 }"><a tabindex="0"><i class="fa fa-fw fa-unlock-alt"></i> Скрыть
                     <span class="label label-default" style="margin-left: 10px;" ng-class="{ 'label-success': cvOptions.hideControls }">{{ cvOptions.hideControls ? "ON" : "OFF" }}</span></a>
                 </li>
 
@@ -62,12 +62,12 @@
 
 
                 <!-- <li class=""><a data-toggle="modal" data-target="#cvServerInfo"><i class="fa fa-fw fa-server"></i> Data model</a></li> -->
-                <li class="" ng-class="{ 'disabled': cubesService.state != 2 }"><a data-toggle="modal" data-target="#cvServerInfo" ><i class="fa fa-fw fa-database"></i> Server info</a></li>
+                <li class="" ng-class="{ 'disabled': cubesService.state != 2 }"><a data-toggle="modal" data-target="#cvServerInfo" ><i class="fa fa-fw fa-database"></i> О сервере</a></li>
 
                 <div class="divider"></div>
 
-                <li class=""><a href="http://github.com/jjmontesl/cubesviewer/blob/master/doc/guide/cubesviewer-user-main.md" target="_blank"><i class="fa fa-fw fa-question"></i> User guide</a></li>
-                <li class=""><a data-toggle="modal" data-target="#cvAboutModal"><i class="fa fa-fw fa-info"></i> About CubesViewer...</a></li>
+                <li class=""><a href="http://github.com/jjmontesl/cubesviewer/blob/master/doc/guide/cubesviewer-user-main.md" target="_blank"><i class="fa fa-fw fa-question"></i> Руководство</a></li>
+                <li class=""><a data-toggle="modal" data-target="#cvAboutModal"><i class="fa fa-fw fa-info"></i> О CubesViewer...</a></li>
 
             </ul>
         </div>
@@ -95,8 +95,8 @@
         <div class="row">
             <div ng-if="cubesService.state == 3" class="col-xs-12" style="margin-bottom: 10px;">
                 <div class="alert alert-danger" style="margin: 0px;">
-                    <p>Could not connect to server: {{ cubesService.stateText }}</p>
-                    <p>Please try again and contact your administrator if the problem persists.</p>
+                  <p>Невозможно подсоединиться к серверу: {{ cubesService.stateText }}</p>
+                  <p>Попробуйте снова.</p>
                 </div>
             </div>
         </div>
@@ -116,5 +116,3 @@
     </div>
 
 </div>
-
-

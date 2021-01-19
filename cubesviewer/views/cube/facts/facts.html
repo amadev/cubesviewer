@@ -1,7 +1,7 @@
 <div ng-controller="CubesViewerViewsCubeFactsController">
 
     <!-- ($(view.container).find('.cv-view-viewdata').children().size() == 0)  -->
-    <h3><i class="fa fa-fw fa-th"></i> Facts data
+    <h3><i class="fa fa-fw fa-th"></i> Факты
         <i ng-show="view.pendingRequests > 0" class="fa fa-circle-o-notch fa-spin fa-fw margin-bottom text-info pull-right"></i>
     </h3>
 
@@ -17,6 +17,6 @@
     </div>
     <div ng-if="view.grid.data.length > 0" style="height: 30px;">&nbsp;</div>
 
-    <div ng-if="viewController.view.pendingRequests == 0 && view.grid.data.length == 0">No facts are returned by the current filtering combination.</div>
+    <div ng-if="viewController.view.pendingRequests == 0 && view.grid.data.length == 0">Нет фактов.</div>
 
 </div>
